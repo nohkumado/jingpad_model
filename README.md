@@ -1,4 +1,5 @@
-# jingpad_model
-repository for 3D models round the jingpad
+# Jingpad models
 
-- jingpad ![mockup](img/jingpad_mockup.png]
+repository for 3D models around the [jingpad ](https://en.jingos.com/)
+
+- jingpad ![mockup](img/jingpad_mockup.png)
