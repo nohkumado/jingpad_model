@@ -1,5 +1,5 @@
-jingpad(mask=5);
-//jingpad();
+//jingpad(mask=5);
+jingpad();
 
 
 module jingpad(mask=0)
@@ -32,29 +32,29 @@ module jingpad(mask=0)
 	usb_c();
     }
   }
-    if(mask != 0)
-      color("black")
-	translate([w2+3.5-6.1,0,0])
-	scale([1.1,1.1,1.1])
-	usb_c(mask = mask);
+  if(mask != 0)
+    color("black")
+    translate([w2+3.5-6.1,0,0])
+    scale([1.1,1.1,1.1])
+    usb_c(mask = mask);
 
   //front camera
   color("black")
     translate([-w2+3.5,0,t2-.1])
     if(mask == 0)
     cylinder(d=2.5, h=1, center = true, $fn=20);
- else 
-    cylinder(d1=2.5,d2=5, h=mask, center = true, $fn=20);
+    else 
+      cylinder(d1=2.5,d2=5, h=mask, center = true, $fn=20);
   //power switch
   color("black")
     translate([-w2+0.5,h2-34,0])
-  rotate([90,0,90])
+    rotate([90,0,90])
     translate([0,0,-1-mask])
     round_square(w=15.5,h=4.5,l=2+mask);
   //sound switch
   color("black")
     translate([-w2+36,h2,0])
-  rotate([90,0,00])
+    rotate([90,0,00])
     translate([0,0,-1-mask])
     round_square(w=23.5,h=2.5,l=2+mask);
   //back cam
@@ -64,11 +64,9 @@ module jingpad(mask=0)
   //pogo pins
   color("black")
     translate([w2-15.5,0,-t2-1-mask])
-  rotate([0,0,90])
+    rotate([0,0,90])
     round_square(w=28,h=5,l=2+mask);
-   //   color("magenta")
-   // translate([width/2-15.5,0,-thick/2-1])
-   // cube([1,1,20], center = true);
+
   magnets = [
     //upper left side
     [-w2+26,h2-32],
@@ -97,8 +95,8 @@ module jingpad(mask=0)
     ];
     for(pos = magnets)
       color("grey")
-	translate([pos[0],pos[1],-t2-.1])
-	cylinder(d=5, h=2, $fn=20);
+      translate([pos[0],pos[1],-t2-.1])
+      cylinder(d=5, h=2, $fn=20);
 
 }
 
@@ -113,7 +111,7 @@ module fillet(r, h, center = true)
       cube([r + 0.01, r + 0.01, h], center = true);
 
       translate([r/2, r/2, -0.01])
-        cylinder(r = r, h = h + 2, center = true, $fn=100);
+	cylinder(r = r, h = h + 2, center = true, $fn=100);
 
     }
 }
@@ -126,7 +124,7 @@ module fillet2D(r, h, center = true)
       square([r + 0.01, r + 0.01], center = true);
 
       translate([r/2, r/2, 0])
-        circle(r = r, $fn=100);
+	circle(r = r, $fn=100);
 
     }
 }
@@ -136,7 +134,7 @@ module usb_c(mask = 0)
   //usb c USB-C port measuring 8.4 millimetres (0.33 in) wide, 2.6 millimetres (0.10 in) high, and 6.65 millimetres (0.262 in) deep.
   rotate([90,0,90])
     translate([0,0,-6.65/2])
-  round_square(w=8.4,h=2.6,l=6.65+mask);
+    round_square(w=8.4,h=2.6,l=6.65+mask);
 }
 module round_square(w,h,l)
 {
